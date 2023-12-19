@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test.Calculator"
+             Title="calculator"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="18"></Setter>
+                <Setter Property="CornerRadius" Value="50"></Setter>
+                <Setter Property="BackgroundColor" Value="Black"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="FontSize" Value="40"></Setter>
+            </Style>
+            <Style x:Key="row2" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="red"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="CornerRadius" Value="50"></Setter>
+                <Setter Property="FontSize" Value="40"></Setter>
+            </Style>
+            <Style x:Key="column4" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Gray"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="CornerRadius" Value="50"></Setter>
+                <Setter Property="FontSize" Value="40"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid RowSpacing="10"
+          ColumnSpacing="5"
+        RowDefinitions="2*,*,*,*,*,*"
+        ColumnDefinitions="*,*,*,*">
+        <Label Text="{Binding Result}"
+               HorizontalTextAlignment="End"
+               VerticalTextAlignment="End" 
+               FontSize="80"
+               Grid.ColumnSpan="4">
+        </Label>
+        <Button Text="AC" Grid.Row="1"  Style="{StaticResource row2}" Clicked="Calculate"></Button>
+        <Button Text="+/-" Grid.Row="1" Grid.Column="1" Style="{StaticResource column4}" Clicked="Calculate"></Button>
+        <Button Text="%" Grid.Row="1" Grid.Column="2" Style="{StaticResource column4}" Clicked="Calculate"></Button>
+        <Button Text="÷" Grid.Column="3" Grid.Row="1" Style="{StaticResource column4}" Clicked="Calculate"></Button>
+        <Button Text="7"  Grid.Row="2" Clicked="Calculate"></Button>
+        <Button Text="8" Grid.Column="1" Grid.Row="2" Clicked="Calculate"></Button>
+        <Button Text="9" Grid.Column="2" Grid.Row="2" Clicked="Calculate"></Button>
+        <Button Text="*" Grid.Column="3" Style="{StaticResource column4}" Grid.Row="2" Clicked="Calculate"></Button>
+        <Button Clicked="Calculate" Text="4"  Grid.Row="3"></Button>
+        <Button Clicked="Calculate" Text="5" Grid.Column="1" Grid.Row="3"></Button>
+        <Button Clicked="Calculate" Text="6" Grid.Column="2" Grid.Row="3"></Button>
+        <Button Clicked="Calculate" Text="-" Grid.Column="3" Style="{StaticResource column4}" Grid.Row="3"></Button>
+        <Button Clicked="Calculate" Text="1" Grid.Row="4"></Button>
+        <Button Clicked="Calculate" Text="2" Grid.Column="1" Grid.Row="4"></Button>
+        <Button Clicked="Calculate" Text="3" Grid.Column="2" Grid.Row="4"></Button>
+        <Button Clicked="Calculate" Text="+" Grid.Column="3" Style="{StaticResource column4}" Grid.Row="4"></Button>
+        <Button Clicked="Calculate" Text="0" Grid.ColumnSpan="2" Grid.Row="6" ></Button>
+        <Button Clicked="Calculate" Text="." Grid.Column="2" Grid.Row="6"></Button>
+        <Button Clicked="Calculate" Text="=" Grid.Column="3" Style="{StaticResource column4}" Grid.Row="6"></Button>
+    </Grid>
+</ContentPage>
